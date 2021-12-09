@@ -31,6 +31,35 @@ function setupGrid(size) {
     }
   };
 
+  function reloadGrid() {
+    currentSize = youSelect();
+    
+    grid.innerHTML = '';
+    setupGrid(currentSize);
+  }
+
+  function youSelect() {
+    let yourSelection = "";
+    let numSelection = 0;
+
+    do {
+        yourSelection = window.prompt("Please select the size of board (from 16 to 100)", "");
+
+        if (yourSelection != null) {
+            if(isNaN(yourSelection) === false) {
+                numSelection = parseInt(yourSelection);
+
+                    if((numSelection >= 16) && (numSelection <= 100)){
+                        return(numSelection)
+                    }
+            }
+        }
+        
+        alert("Please, insert a whole number! (from 16 to 100)");
+
+    } while (1);  
+};
+
   function changeColor(e) {
     if (currentMode === 'color') 
     {
